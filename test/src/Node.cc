@@ -17,7 +17,7 @@
 #include "comm.h"
 #include <string>
 
-#include <cString>
+
 using std::string;
 namespace test {
 
@@ -38,8 +38,8 @@ void Node::initialize()
 
       seq = 0;
 
-      //init Ö¸Õë
-      head = tail =0;//ÏÈÈëÏÈ³ö£¬¶ÓÁÐÄ£ÐÍ
+      //init Ö¸ï¿½ï¿½
+      head = tail =0;//ï¿½ï¿½ï¿½ï¿½ï¿½È³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
 }
 
 void Node::handleMessage(cMessage *msg)
@@ -49,7 +49,7 @@ void Node::handleMessage(cMessage *msg)
     pkLenBits = &par("pkLenBits");
             txRate = par("txRate");
             sink = simulation.getModuleByPath("sink");
-            if (!sink) error("sink not found"); //ÓÃÓÚÑ°ÕÒ½Úµã
+            if (!sink) error("sink not found"); //ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½Ò½Úµï¿½
 
             int n = seq%10; //define the position of the buffer
 
@@ -73,7 +73,7 @@ void Node::handleMessage(cMessage *msg)
     scheduleAt(simTime()+par("sendInterval").doubleValue(),timerMsg);
 
 }
-// ³õÊ¼»¯½ÚµãÖÐÊý¾Ý
+// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 NodeBuf Node::newBuf(){
     NodeBuf buf;
    buf.data = 0.0;
