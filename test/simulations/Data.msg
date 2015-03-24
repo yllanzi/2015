@@ -1,4 +1,4 @@
-message Data
+packet Data
 {
 	int source;
 	int seq;

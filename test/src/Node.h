@@ -21,17 +21,19 @@ private:
     cModule *sink;
     NodeBuf Nbuf[];
     int i;
-    int head,tail;//¼ÇÂ¼¶ÓÁÐÍ·Î²
-    //»º³åÇø³¤¶È
+    int head,tail;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Í·Î²
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     int blength;
-    int seq;//½ÚµãÖÐseqÐòºÅ£¬×÷Îª³õÊ¼ÖµÎª0
+    int seq;//ï¿½Úµï¿½ï¿½ï¿½seqï¿½ï¿½Å£ï¿½ï¿½ï¿½Îªï¿½ï¿½Ê¼ÖµÎª0
     cQueue queue;
     cArray array;
 protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
-    NodeBuf newBuf(); //³õÊ¼»¯½ÚµãÖÐµÄÊý¾Ý
-    void newData(int i); //¸ø¶¨ÐòºÅ£¬½«ÏàÓ¦µÄ½Úµã·ÅÈëÊý¾Ý£¬Ïàµ±ÓÚ²úÉúÐÂÊý¾Ý¡£
+    NodeBuf newBuf(); //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Úµï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½
+    void newData(int i); //ï¿½ï¿½ï¿½ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½àµ±ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¡ï¿½
+   Data *generateMessage();
+    void sendMessage();
 };
 
 }; // namespace

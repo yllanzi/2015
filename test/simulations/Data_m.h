@@ -18,7 +18,7 @@
 /**
  * Class generated from <tt>Data.msg:2</tt> by nedtool.
  * <pre>
- * message Data
+ * packet Data
  * {
  *     int source;
  *     int seq;
@@ -29,7 +29,7 @@
  * }
  * </pre>
  */
-class Data : public ::cMessage
+class Data : public ::cPacket
 {
   protected:
     int source_var;

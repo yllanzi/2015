@@ -53,7 +53,7 @@ void Node::handleMessage(cMessage *msg)
 
             int n = seq%10; //define the position of the buffer
 
-          NodeBuf  a ;
+
 
           a.data =dblrand()*100;
           a.seq = seq;
@@ -75,7 +75,7 @@ void Node::handleMessage(cMessage *msg)
 }
 // ��ʼ���ڵ������
 NodeBuf Node::newBuf(){
-    NodeBuf buf;
+   NodeBuf buf;
    buf.data = 0.0;
    buf.seq = 0;
    return buf;
@@ -94,5 +94,15 @@ char *Node::setMsg(double data){
     sprintf(str,"%lf",data);
     return *str;
 }*/
-
+Data *Node::generateMessage(){
+    int src = getIndex();
+    Data *newmsg = new Data("data msg");
+    newmsg->src = src;
+    newmsg->seq = seq;
+    newmsg->data = dblrand()*100;
+    newmsg->state = 0;
+    newmsg->num = 0;
+    newmsg->time = 0;
+    return newmsg;
+}
 }; // namespace

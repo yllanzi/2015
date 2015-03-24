@@ -55,7 +55,7 @@ inline std::ostream& operator<<(std::ostream& out,const T&) {return out;}
 
 Register_Class(Data);
 
-Data::Data(const char *name, int kind) : ::cMessage(name,kind)
+Data::Data(const char *name, int kind) : ::cPacket(name,kind)
 {
     this->source_var = 0;
     this->seq_var = 0;
@@ -65,7 +65,7 @@ Data::Data(const char *name, int kind) : ::cMessage(name,kind)
     this->time_var = 0;
 }
 
-Data::Data(const Data& other) : ::cMessage(other)
+Data::Data(const Data& other) : ::cPacket(other)
 {
     copy(other);
 }
@@ -77,7 +77,7 @@ Data::~Data()
 Data& Data::operator=(const Data& other)
 {
     if (this==&other) return *this;
-    ::cMessage::operator=(other);
+    ::cPacket::operator=(other);
     copy(other);
     return *this;
 }
@@ -94,7 +94,7 @@ void Data::copy(const Data& other)
 
 void Data::parsimPack(cCommBuffer *b)
 {
-    ::cMessage::parsimPack(b);
+    ::cPacket::parsimPack(b);
     doPacking(b,this->source_var);
     doPacking(b,this->seq_var);
     doPacking(b,this->data_var);
@@ -105,7 +105,7 @@ void Data::parsimPack(cCommBuffer *b)
 
 void Data::parsimUnpack(cCommBuffer *b)
 {
-    ::cMessage::parsimUnpack(b);
+    ::cPacket::parsimUnpack(b);
     doUnpacking(b,this->source_var);
     doUnpacking(b,this->seq_var);
     doUnpacking(b,this->data_var);
@@ -199,7 +199,7 @@ class DataDescriptor : public cClassDescriptor
 
 Register_ClassDescriptor(DataDescriptor);
 
-DataDescriptor::DataDescriptor() : cClassDescriptor("Data", "cMessage")
+DataDescriptor::DataDescriptor() : cClassDescriptor("Data", "cPacket")
 {
 }
 
